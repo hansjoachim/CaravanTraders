@@ -13,5 +13,9 @@ var city = {
   }
 };
 
-//TODO: tighter check whether this is possible to do?
-module.exports = city;
+if (typeof module !== "undefined") {
+  module.exports = city;
+} else {
+  //TODO: use a namespace
+  this.city = city;
+}
