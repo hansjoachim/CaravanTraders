@@ -15,3 +15,9 @@ To run the tests, simply run:
 ##License
 
 GPL3, see COPYING.txt for details.
+
+
+##Third-party software
+
+Third-party software included:
+Angular.js (License: MIT)
