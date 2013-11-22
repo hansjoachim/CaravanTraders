@@ -16,6 +16,5 @@ var city = {
 if (typeof module !== "undefined") {
   module.exports = city;
 } else {
-  //TODO: use a namespace
-  this.city = city;
-}
+  define(city);
+};
