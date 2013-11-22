@@ -1,9 +1,22 @@
 <!doctype html>
+<html ng-app>
 <head>
   <meta charset="utf-8" />
   <title>Caravan Traders</title>
+  <script data-main="src/caravan-traders" src="dependencies/require.js"></script>
 </head>
 <body>
   <h2>Caravan Traders</h2>
   <p>Please note this is work in progress</p>
+  <input autofocus type="text" ng-model="name" />
+  <p>City: {{name}}</p>
+
+<!--  <div ng-controller="CityController">
+    <ul>
+      <li ng-repeat="ware in city.wares">
+        {{ware}}
+      </li>
+    </ul>
+  </div> -->
 </body>
+</html>
