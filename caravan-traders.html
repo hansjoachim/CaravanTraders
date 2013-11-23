@@ -15,7 +15,7 @@
     {{city.name}}
     <ul>
       <li ng-repeat="ware in city.wares">
-        {{ware.name}} ({{ware.amount}})
+       <input type="button" value="Purchase" ng-click="purchase(ware.name)" /> {{ware.name}} ({{ware.amount}})
       </li>
     </ul>
   </div>
