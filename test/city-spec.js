@@ -3,6 +3,7 @@ var ware = require("../src/ware");
 
 var apples = ware.create("apple", 2);
 var banana = ware.create("banana");
+var orange = ware.create("orange");
 
 describe("a city", function() {
   it("has a name", function() {
@@ -19,16 +20,38 @@ describe("a city", function() {
     expect(some_place.wares[0].name).toBe("banana");
   });
   it("can get an initial list with multiple wares", function() {
-    var apple = ware.create("apple");
-    var orange = ware.create("orange");
-    var city_with_multiple_wares = city.create("multiplexia", [apple, orange]);
+    var pear = ware.create("pear");
+    var city_with_multiple_wares = city.create("multiplexia", [orange, pear]);
     expect(city_with_multiple_wares.wares.length).toEqual(2);
-    expect(city_with_multiple_wares.wares).toContain(apple, orange);
+    expect(city_with_multiple_wares.wares).toContain(orange);
+    expect(city_with_multiple_wares.wares).toContain(pear);
   });
-  it("can sell a ware", function() {
+  it("can sell some of a ware", function() {
+    var bananas = ware.create("banana", 3);
+    var some_place = city.create("some place", [bananas]);
+    var sold = some_place.sell("banana", 2);
+    expect(sold.name).toBe("banana");
+    expect(sold.amount).toBe(2);
+    expect(some_place.wares.length).toBe(1);
+    expect(some_place.getAmount("banana")).toBe(1);
+  });
+  it("will stop listing a ware if all of it is sold", function() {
     var some_place = city.create("some place", [banana]);
-    expect(some_place.sell()).toBe(banana);
+    var sold = some_place.sell("banana", 1);
+    expect(sold.name).toBe("banana");
+    expect(sold.amount).toBe(1);
     expect(some_place.wares.length).toBe(0);
+  });
+  //TODO: test sell without amount is shorthand for sell all
+  //TODO: test sell a specific ware ;)
+  //TODO: should throw an exception if I attempt to sell a ware I don't have
+  //TODO: ditto for attempting to sell a too large amount
+  it("has a list of the wares in stock", function() {
+    var wares = [banana, orange];
+    var town = city.create("name", wares);
+    expect(town.getWareNames().length).toBe(2);
+    expect(town.getWareNames()).toContain("banana");
+    expect(town.getWareNames()).toContain("orange");
   });
   it("can get the amount of a ware", function() {
     var some_place = city.create("some place", [banana, apples]);
@@ -40,11 +63,8 @@ describe("a city", function() {
     expect(some_place.getAmount("banana")).toBe(0);
   });
   it("can store different amounts of wares", function() {
-    var wares= [banana, apples];
+    var wares = [banana, apples];
     var town = city.create("name", wares);
-    expect(town.getWareNames().length).toBe(2);
-    expect(town.getWareNames()).toContain("banana");
-    expect(town.getWareNames()).toContain("apple");
     expect(town.wares[0].name).toBe("banana");
     expect(town.wares[0].amount).toBe(1);
     expect(town.wares[1].name).toBe("apple");

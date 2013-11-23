@@ -3,8 +3,19 @@ var city = {
     var instance = {};
     instance.name = name;
     instance.wares = wares || [];
-    instance.sell = function() {
-      return this.wares.pop();
+    instance.sell = function(name, amount) {
+      for(var i = 0;i < this.wares.length;i++) {
+        var current = this.wares[i];
+        if(current.name === name) {
+          if (current.amount === amount) {
+            //FIXME: only remove some wares, not all!
+            this.wares = [];
+          } else {
+            this.wares[i].amount -= amount;
+          }
+          return {"name": current.name, "amount": amount};
+        }
+      }
     }
     instance.getWareNames = function() {
       var names = [];
