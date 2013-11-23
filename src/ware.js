@@ -1,18 +1,13 @@
 var ware = {
   create: function(name, amount) {
-    this.name = name;
+    var instance = {}
+    instance.name = name;
     if (typeof amount !== "undefined") {
-      this.amount = amount;
+      instance.amount = amount;
     } else {
-      this.amount = 1;
+      instance.amount = 1;
     }
-    return this;
-  },
-  name: function() {
-    return this.name;
-  },
-  amount: function() {
-    return this.amount;
+    return instance;
   }
 }
 
