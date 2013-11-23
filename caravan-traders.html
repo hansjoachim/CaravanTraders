@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app>
+<html>
 <head>
   <meta charset="utf-8" />
   <title>Caravan Traders</title>
@@ -11,12 +11,13 @@
   <input autofocus type="text" ng-model="name" />
   <p>City: {{name}}</p>
 
-<!--  <div ng-controller="CityController">
+  <div ng-controller="CityController">
+    {{city.name}}
     <ul>
       <li ng-repeat="ware in city.wares">
-        {{ware}}
+        {{ware.name}} ({{ware.amount}})
       </li>
     </ul>
-  </div> -->
+  </div>
 </body>
 </html>

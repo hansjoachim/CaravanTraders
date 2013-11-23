@@ -7,12 +7,6 @@ require.config({
   }
 });
 
-require(["angular", "city"], function(angular, city) {
-//  angular.bootstrap(document);
-
-  /*  function CityController($scope) {
-      $scope.city = {wares: ["foo", "bar"]}
-    }*/
-  var some_place = city.create(["something", "something else", "yet another thing"]);
-  console.log(some_place.wares);
+require(["angular", "app"], function(angular) {
+   angular.bootstrap(document, ["app"]);
 });
