@@ -1,6 +1,7 @@
 var city = require("../src/city");
 var ware = require("../src/ware");
 
+var apples = ware.create("apple", 2);
 var banana = ware.create("banana");
 
 describe("a city", function() {
@@ -29,8 +30,16 @@ describe("a city", function() {
     expect(some_place.sell()).toBe(banana);
     expect(some_place.wares.length).toBe(0);
   });
+  it("can get the amount of a ware", function() {
+    var some_place = city.create("some place", [banana, apples]);
+    expect(some_place.getAmount("banana")).toBe(1);
+    expect(some_place.getAmount("apple")).toBe(2);
+  });
+  it("can say it has zero of a ware it doesn't have in stock", function() {
+    var some_place = city.create("some place", []);
+    expect(some_place.getAmount("banana")).toBe(0);
+  });
   it("can store different amounts of wares", function() {
-    var apples = ware.create("apple", 2);
     var wares= [banana, apples];
     var town = city.create("name", wares);
     expect(town.getWareNames().length).toBe(2);
