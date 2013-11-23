@@ -7,12 +7,19 @@
 </head>
 <body>
   <h2>Caravan Traders</h2>
-  <p>Please note this is work in progress</p>
-  <input autofocus type="text" ng-model="name" />
-  <p>City: {{name}}</p>
 
   <div ng-controller="CityController">
-    {{city.name}}
+   <div>
+   Player is currently residing in {{player.location.name}}, has {{player.gold}} gold and the following wares:
+   <ul>
+     <li ng-repeat="ware in player.wares">
+       {{ware.name}} ({{ware.amount}})
+     </li>
+   </ul>
+   </div>
+
+   <h4>Cities</h4>
+   <h5>{{city.name}}</h5>
     <ul>
       <li ng-repeat="ware in city.wares">
        <input type="button" value="Purchase" ng-click="purchase(ware.name)" /> {{ware.name}} ({{ware.amount}})

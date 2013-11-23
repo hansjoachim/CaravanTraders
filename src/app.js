@@ -1,6 +1,7 @@
 define(
   ["angular",
    "city",
+   "player",
    "ware"],
   function (angular) {
     var app = angular.module("app", []);
@@ -11,6 +12,7 @@ define(
                                                ware.create("orange", 2)]); 
 
       $scope.city = somewhere;
+      $scope.player = player.create(somewhere);
 
       $scope.purchase = function(ware) {
         var purchased = $scope.city.sell(ware, 1);
