@@ -42,8 +42,16 @@ describe("a city", function() {
     expect(sold.amount).toBe(1);
     expect(some_place.wares.length).toBe(0);
   });
+  it("can sell all of one ware without impacting the others", function() {
+    var place = city.create("name", [banana, apples]);
+    var all_apples = place.sell("apple", 2);
+    expect(all_apples.name).toBe("apple");
+    expect(all_apples.amount).toBe(2);
+    expect(place.wares.length).toBe(1);
+    expect(place.getWareNames()).not.toContain("apple");
+    expect(place.getWareNames()).toContain("banana");
+  });
   //TODO: test sell without amount is shorthand for sell all
-  //TODO: test sell a specific ware ;)
   //TODO: should throw an exception if I attempt to sell a ware I don't have
   //TODO: ditto for attempting to sell a too large amount
   it("has a list of the wares in stock", function() {

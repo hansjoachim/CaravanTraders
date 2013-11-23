@@ -8,8 +8,13 @@ var city = {
         var current = this.wares[i];
         if(current.name === name) {
           if (current.amount === amount) {
-            //FIXME: only remove some wares, not all!
-            this.wares = [];
+            var excluder = function (ware) {
+              if (ware.name !== name) {
+                return ware;
+              }
+            };
+
+            this.wares = this.wares.filter(excluder);
           } else {
             this.wares[i].amount -= amount;
           }
