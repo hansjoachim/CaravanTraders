@@ -7,7 +7,8 @@ var city = {
       for(var i = 0;i < this.wares.length;i++) {
         var current = this.wares[i];
         if(current.name === name) {
-          if (current.amount === amount) {
+          sold_amount = amount || current.amount;
+          if (current.amount === sold_amount) {
             var excluder = function (ware) {
               if (ware.name !== name) {
                 return ware;
@@ -18,7 +19,10 @@ var city = {
           } else {
             this.wares[i].amount -= amount;
           }
-          return {"name": current.name, "amount": amount};
+          return {
+            "name": current.name,
+            "amount": sold_amount
+            };
         }
       }
     }
