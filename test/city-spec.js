@@ -43,7 +43,8 @@ describe("a city", function() {
     var wares= [banana, apples];
     var town = city.create("name", wares);
     expect(town.getWareNames().length).toBe(2);
-    expect(town.getWareNames()).toContain("banana", "apple");
+    expect(town.getWareNames()).toContain("banana");
+    expect(town.getWareNames()).toContain("apple");
     expect(town.wares[0].name).toBe("banana");
     expect(town.wares[0].amount).toBe(1);
     expect(town.wares[1].name).toBe("apple");

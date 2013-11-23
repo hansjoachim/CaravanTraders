@@ -8,9 +8,9 @@ var city = {
     }
     instance.getWareNames = function() {
       var names = [];
-      for(var i = 0;i < this.wares.length;i++) {
-        names.push(this.wares[i].name);
-      }
+      this.wares.forEach(function (ware){
+        names.push(ware.name);
+      });
       return names;
     }
     instance.getAmount = function(name) {
