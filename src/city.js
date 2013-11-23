@@ -1,15 +1,19 @@
 var city = {
-  //TODO: expand wares to contain amount
-  create: function(wares){
-    this.wares = wares;
-    return this;
-  },
-  name: "hello",
-/*  wares: function() {
-    return this.wares
-  },*/
-  sell: function() {
-    return this.wares.pop();
+  create: function(name, wares){
+    var instance = {};
+    instance.name = name;
+    instance.wares = wares || [];
+    instance.sell = function(){ 
+      return this.wares.pop();
+    };
+    instance.getWareNames = function() {
+      var names = [];
+      for(var i = 0;i < this.wares.length;i++) {
+        names.push(this.wares[i].name);
+      }
+      return names;
+    };
+    return instance;
   }
 };
 
