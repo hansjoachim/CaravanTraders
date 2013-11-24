@@ -16,8 +16,8 @@ define(
 
       $scope.purchase = function(ware) {
         var purchased = $scope.city.sell(ware, 1);
-        console.log("Player bought " + purchased.amount + " " + purchased.name);
-    };
+        $scope.player.addWare(purchased);
+      };
     }]);
 
     return angular.module("app");
