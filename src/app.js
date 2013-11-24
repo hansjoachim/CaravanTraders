@@ -15,7 +15,7 @@ define(
       $scope.player = player.create(somewhere);
 
       $scope.purchase = function(ware) {
-        var purchased = $scope.city.sell(ware, 1);
+        var purchased = $scope.city.removeWare(ware, 1);
         $scope.player.addWare(purchased);
       };
     }]);

@@ -3,12 +3,12 @@ var city = {
     var instance = {};
     instance.name = name;
     instance.wares = wares || [];
-    instance.sell = function(name, amount) {
+    instance.removeWare = function(name, amount) {
       for(var i = 0;i < this.wares.length;i++) {
         var current = this.wares[i];
         if(current.name === name) {
-          sold_amount = amount || current.amount;
-          if (current.amount === sold_amount) {
+          removed_amount = amount || current.amount;
+          if (current.amount === removed_amount) {
             var excluder = function (ware) {
               if (ware.name !== name) {
                 return ware;
@@ -21,7 +21,7 @@ var city = {
           }
           return {
             "name": current.name,
-            "amount": sold_amount
+            "amount": removed_amount
             };
         }
       }
