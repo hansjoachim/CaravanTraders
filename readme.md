@@ -20,5 +20,7 @@ GPL3, see COPYING.txt for details.
 ##Third-party software
 
 Third-party software included:
+
 Angular.js (License: MIT)
+
 Require.js (License: MIT or new BSD)
