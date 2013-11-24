@@ -3,7 +3,7 @@ define(
    "city",
    "player",
    "ware"],
-  function (angular) {
+  function (angular, player) {
     var app = angular.module("app", []);
      
     app.controller("CityController", ["$scope", function($scope) {
