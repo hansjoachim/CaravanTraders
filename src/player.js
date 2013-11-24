@@ -8,6 +8,17 @@ var player = {
     instance.travelTo = function(place) {
       instance.location = place;
     };
+    instance.addWare = function(ware) {
+      var existing = false;
+      for(var i = 0;i<this.wares.length;i++){
+        if(this.wares[i].name === ware.name){
+          this.wares[i].amount += ware.amount;
+          existing=true;
+        }
+      }
+
+      if(!existing) {this.wares.push(ware);}
+    }
 
     return instance;
   }

@@ -59,6 +59,7 @@ describe("a city", function() {
     expect(place.wares.length).toBe(1);
     expect(place.getWareNames()).toContain("orange");
   });
+   //TODO: long-term: combine buying/selling in a purchase-object
   //TODO: should throw an exception if I attempt to sell a ware I don't have
   //TODO: ditto for attempting to sell a too large amount
   it("has a list of the wares in stock", function() {
