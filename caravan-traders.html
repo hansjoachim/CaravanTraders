@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <title>Caravan Traders</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css" />
   <script data-main="src/caravan-traders" src="dependencies/require.js"></script>
 </head>
 <body>
@@ -10,17 +11,17 @@
 
   <div ng-controller="CityController">
    <div>
-   Player is currently residing in {{player.location.name}}, has {{player.gold}} gold and the following wares:
-   <ul>
+   Player is currently residing in {{player.location.name}}, has <span id="gold">{{player.gold}} gold</span> and the following wares:
+   <ul class="wares">
      <li ng-repeat="ware in player.wares">
        {{ware.name}} ({{ware.amount}})
      </li>
    </ul>
    </div>
 
-   <h4>Cities</h4>
-   <h5>{{city.name}}</h5>
-    <ul>
+   <h3>Cities</h3>
+   <h4>{{city.name}}</h4>
+    <ul class="wares">
       <li ng-repeat="ware in city.wares">
        <input type="button" value="Purchase" ng-click="purchase(ware.name)" /> {{ware.name}} ({{ware.amount}})
       </li>

@@ -1,0 +1,14 @@
+ul.wares {
+  border: solid 2px blue;
+  width: 40em;
+}
+
+ul.wares li {
+  background-color: #ccc;
+  font-size: 1.5em;
+}
+
+#gold {
+  background-color: gold;
+  border: solid 2px #444;
+}
