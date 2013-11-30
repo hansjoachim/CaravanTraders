@@ -14,7 +14,7 @@
    Player is currently residing in {{player.location.name}}, has <span id="gold">{{player.gold}} gold</span> and the following wares:
    <ul class="wares">
      <li ng-repeat="ware in player.wares">
-       {{ware.name}} ({{ware.amount}})
+       <input type="button" value="Sell" ng-click="sell(ware.name)" />{{ware.name}} ({{ware.amount}})
      </li>
    </ul>
    </div>

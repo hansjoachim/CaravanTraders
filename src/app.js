@@ -19,6 +19,10 @@ define(
         var purchased = $scope.city.removeWare(ware, 1);
         $scope.player.addWare(purchased);
       };
+      $scope.sell = function(ware) {
+        var sold = $scope.player.removeWare(ware, 1);
+        $scope.city.addWare(sold);
+      };
     }]);
 
     return angular.module("app");
