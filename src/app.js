@@ -1,5 +1,6 @@
 define(
   ["angular",
+   "common",
    "city",
    "player",
    "ware"],
