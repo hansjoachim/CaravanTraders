@@ -1,19 +1,18 @@
-(function () {
-  var Player = function() {};
+  var player = function() {};
 
-  Player.create = function(hometown) {
-    var instance = new Player();
+  player.create = function(hometown) {
+    var instance = new player();
     instance.wares = [];
     instance.gold = 10;
     instance.location = hometown;
     return instance;
   }
 
-  Player.prototype.travelTo = function travelTo(place) {
+  player.prototype.travelTo = function travelTo(place) {
     this.location = place;
   };
 
-  Player.prototype.addWare = function(ware) {
+  player.prototype.addWare = function(ware) {
     var existing = false;
     for(var i = 0;i<this.wares.length;i++){
       if(this.wares[i].name === ware.name){
@@ -25,8 +24,7 @@
   }
 
   if (typeof module !== "undefined") {
-    module.exports = Player;
+    module.exports = player;
   } else {
-    define(Player);
+    define(player);
   }
-})();
