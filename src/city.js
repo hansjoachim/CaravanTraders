@@ -1,49 +1,30 @@
-var city = {
-  create: function(name, wares){
-    var instance = {};
-    instance.name = name;
-    instance.wares = wares || [];
-    instance.removeWare = function(name, amount) {
-      for(var i = 0;i < this.wares.length;i++) {
-        var current = this.wares[i];
-        if(current.name === name) {
-          removed_amount = amount || current.amount;
-          if (current.amount === removed_amount) {
-            var excluder = function (ware) {
-              if (ware.name !== name) {
-                return ware;
-              }
-            };
+var common = require("./common");
 
-            this.wares = this.wares.filter(excluder);
-          } else {
-            this.wares[i].amount -= amount;
-          }
-          return {
-            "name": current.name,
-            "amount": removed_amount
-            };
-        }
-      }
+var city = function() {};
+city.prototype = common;
+
+city.create = function(name, wares){
+  var instance = new city();
+  instance.name = name;
+  instance.wares = wares || [];
+  return instance;
+}
+
+city.prototype.getWareNames = function() {
+  var names = [];
+  this.wares.forEach(function (ware){
+    names.push(ware.name);
+  });
+  return names;
+}
+city.prototype.getAmount = function(name) {
+  for(var i = 0;i < this.wares.length;i++) {
+    if(this.wares[i].name === name) {
+      return this.wares[i].amount;
     }
-    instance.getWareNames = function() {
-      var names = [];
-      this.wares.forEach(function (ware){
-        names.push(ware.name);
-      });
-      return names;
-    }
-    instance.getAmount = function(name) {
-      for(var i = 0;i < this.wares.length;i++) {
-        if(this.wares[i].name === name) {
-          return this.wares[i].amount;
-        }
-      }
-      return 0;
-    }
-    return instance;
   }
-};
+  return 0;
+}
 
 if (typeof module !== "undefined") {
   module.exports = city;
