@@ -10,7 +10,7 @@ The tests can be run using jasmine-node. To install this package, run:
 
 To run the tests, simply run:
 
-    ./node_modules/jasmine-node/bin/jasmine-node test/
+    ./node_modules/.bin/jasmine-node --autotest .
 
 ##License
 
