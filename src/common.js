@@ -1,6 +1,6 @@
 //TODO: better name
 var common = {
-  addWare : function(ware) {
+  addWare : function (ware) {
     var existing = false;
     for(var i = 0;i<this.wares.length;i++){
       if(this.wares[i].name === ware.name){
@@ -10,7 +10,7 @@ var common = {
     }
     if(!existing) {this.wares.push(ware);}
   },
-  removeWare : function(name, amount) {
+  removeWare : function (name, amount) {
     for(var i = 0;i < this.wares.length;i++) {
       var current = this.wares[i];
       if(current.name === name) {
@@ -33,7 +33,7 @@ var common = {
       }
     }
   }
-}
+};
 
 if (typeof module !== "undefined") {
   module.exports = common;
