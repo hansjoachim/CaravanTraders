@@ -1,6 +1,7 @@
+/*jslint indent: 2*/
 var ware = {
-  create: function(name, amount) {
-    var instance = {}
+  create: function (name, amount) {
+    var instance = {};
     instance.name = name;
     if (typeof amount !== "undefined") {
       instance.amount = amount;
@@ -9,10 +10,10 @@ var ware = {
     }
     return instance;
   }
-}
+};
 
 if (typeof module !== "undefined") {
   module.exports = ware;
 } else {
   define(ware);
-};
+}
