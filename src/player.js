@@ -1,4 +1,4 @@
-var common = require("./common");
+define(['common'], function (common) {
 
   var player = function () {};
   player.prototype = common;
@@ -14,9 +14,5 @@ var common = require("./common");
     instance.location = hometown;
     return instance;
   };
-
-  if (typeof module !== "undefined") {
-    module.exports = player;
-  } else {
-    define(player);
-  }
+  return player;
+});

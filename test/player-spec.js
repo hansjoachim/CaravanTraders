@@ -1,7 +1,5 @@
 /*jslint indent: 2 */
-var city = require("../src/city");
-var player = require("../src/player");
-var ware = require("../src/ware");
+define(['city', 'player', 'ware'], function (city, player, ware) {
 
 var p1 = player.create(city.create("starting point"));
 
@@ -47,4 +45,5 @@ describe("player", function () {
     expect(trader.wares[0].name).toBe("banana");
     expect(trader.wares[0].amount).toBe(2);
   });
+});
 });

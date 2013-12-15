@@ -1,7 +1,5 @@
 /*jslint indent: 2 */
-var city = require("../src/city");
-var ware = require("../src/ware");
-
+define(['city', 'ware'], function (city, ware) {
 var apples = ware.create("apple", 2);
 var banana = ware.create("banana");
 var orange = ware.create("orange");
@@ -88,4 +86,5 @@ describe("a city", function () {
     expect(town.wares[1].name).toBe("apple");
     expect(town.wares[1].amount).toBe(2);
   });
+});
 });

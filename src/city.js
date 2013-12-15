@@ -1,4 +1,4 @@
-var common = require("./common");
+define(['common'], function (common) {
 
 var city = function () {};
 city.prototype = common;
@@ -26,8 +26,5 @@ city.prototype.getAmount = function (name) {
   return 0;
 };
 
-if (typeof module !== "undefined") {
-  module.exports = city;
-} else {
-  define(city);
-}
+return city;
+});
