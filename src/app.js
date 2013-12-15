@@ -4,6 +4,7 @@ define(
    "player",
    "ware"],
   function (angular, city, player, ware) {
+    "use strict";
     var app = angular.module("app", []);
      
     app.controller("CityController", ["$scope", function($scope) {

@@ -1,7 +1,7 @@
 /*jslint indent: 2 */
 define(['ware'], function (ware) {
+  "use strict";
   describe("a ware", function () {
-    "use strict";
     it("has a name", function () {
       var banana = ware.create("banana");
       expect(banana.name).toBe("banana");

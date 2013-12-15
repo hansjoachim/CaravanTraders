@@ -1,4 +1,5 @@
 define(['common'], function (common) {
+  "use strict";
 
   var player = function () {};
   player.prototype = common;

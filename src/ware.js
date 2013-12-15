@@ -1,5 +1,7 @@
 /*jslint indent: 2*/
 define(function() {
+  "use strict";
+
   var ware = function () {};
   ware.create = function (name, amount) {
     var instance = {};
