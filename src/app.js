@@ -1,10 +1,9 @@
 define(
   ["angular",
-   "common",
    "city",
    "player",
    "ware"],
-  function (angular) {
+  function (angular, city, player, ware) {
     var app = angular.module("app", []);
      
     app.controller("CityController", ["$scope", function($scope) {
