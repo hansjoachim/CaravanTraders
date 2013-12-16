@@ -2,7 +2,7 @@
 define(function() {
   "use strict";
 
-  var ware = function () {};
+  var ware = {};
   ware.create = function (name, amount) {
     var instance = {};
     instance.name = name;
