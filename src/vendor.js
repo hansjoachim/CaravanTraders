@@ -1,5 +1,5 @@
 define( function () {
-//  "use strict";  //currently breaks the test suite
+  "use strict";
 
   var vendor = {};
   vendor.addWare = function (ware) {
@@ -16,7 +16,7 @@ define( function () {
     for(var i = 0;i < this.wares.length;i++) {
       var current = this.wares[i];
       if(current.name === name) {
-        removed_amount = amount || current.amount;
+        var removed_amount = amount || current.amount;
         if (current.amount === removed_amount) {
           var excluder = function (ware) {
             if (ware.name !== name) {
