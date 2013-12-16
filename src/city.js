@@ -1,8 +1,8 @@
-define(['common'], function (common) {
+define(['vendor'], function (vendor) {
   "use strict";
 
   var city = function () {};
-  city.prototype = common;
+  city.prototype = vendor;
 
   city.create = function (name, wares){
     var instance = new city();

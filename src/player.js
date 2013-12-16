@@ -1,8 +1,8 @@
-define(['common'], function (common) {
+define(['vendor'], function (vendor) {
   "use strict";
 
   var player = function () {};
-  player.prototype = common;
+  player.prototype = vendor;
 
   player.prototype.travelTo = function (place) {
     this.location = place;
