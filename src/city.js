@@ -1,24 +1,22 @@
 define(['vendor'], function (vendor) {
   "use strict";
 
-  var city = function () {};
-  city.prototype = vendor;
-
-  city.create = function (name, wares){
-    var instance = new city();
-    instance.name = name;
-    instance.wares = wares || [];
-    return instance;
+  var City = function (name, wares) {
+    this.name = name;
+    this.wares = wares;
   };
 
-  city.prototype.getWareNames = function () {
+  City.prototype = vendor;
+
+  City.prototype.getWareNames = function () {
     var names = [];
-    this.wares.forEach(function (ware){
+    this.wares.forEach(function (ware) {
       names.push(ware.name);
     });
     return names;
   };
-  city.prototype.getAmount = function (name) {
+
+  City.prototype.getAmount = function (name) {
     for(var i = 0;i < this.wares.length;i++) {
       if(this.wares[i].name === name) {
         return this.wares[i].amount;
@@ -27,5 +25,12 @@ define(['vendor'], function (vendor) {
     return 0;
   };
 
-  return city;
+  City.create = function (name, wares) {
+    return new City(
+      name,
+      wares || []
+      );
+  };
+
+  return City;
 });
