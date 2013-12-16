@@ -1,19 +1,20 @@
 define(['vendor'], function (vendor) {
   "use strict";
 
-  var player = function () {};
-  player.prototype = vendor;
+  var Player = function (starting_place) {
+    this.location = starting_place;
+    this.wares = [];
+    this.gold = 10;
+  };
+  Player.prototype = vendor;
 
-  player.prototype.travelTo = function (place) {
+  Player.prototype.travelTo = function (place) {
     this.location = place;
   };
 
-  player.create = function (hometown) {
-    var instance = new player();
-    instance.wares = [];
-    instance.gold = 10;
-    instance.location = hometown;
-    return instance;
+  Player.create = function (stating_place) {
+    return new Player(stating_place);
   };
-  return player;
+
+  return Player;
 });
