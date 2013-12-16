@@ -2,17 +2,18 @@
 define(function() {
   "use strict";
 
-  var ware = {};
-  ware.create = function (name, amount) {
-    var instance = {};
-    instance.name = name;
+  var Ware = function (name, amount) {
+    this.name = name;
+    this.amount = amount;
+  };
+
+  Ware.create = function (name, amount) {
     if (typeof amount !== "undefined") {
-      instance.amount = amount;
+      return new Ware(name, amount);
     } else {
-      instance.amount = 1;
+      return new Ware(name, 1);
     }
-    return instance;
   }
 
-  return ware;
+  return Ware;
 });
