@@ -21,9 +21,13 @@ module.exports = function(config) {
     exclude: [
     ],
 
+    preprocessors: {
+      'src/*.js': 'coverage'
+    },
+
     // test results reporter to use
     // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
 
     // web server port
     port: 9876,

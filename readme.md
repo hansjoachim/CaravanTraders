@@ -6,13 +6,15 @@ Small, work-in-progress game about leading a caravan from city to city and tradi
 
 The tests can be run using karma. To install this package, run:
 
-    npm install karma karma-opera-launcher
+    npm install karma karma-coverage karma-opera-launcher
 
 To run the tests, simply run:
 
     ./node_modules/.bin/karma start
 
-By default, karma is configured to run on Opera and Firefox, but can easily be extended to test on more.
+By default, karma is configured to open and run in Opera and Firefox, but can easily be extended to test in more browsers.
+
+Coverage reports are generated and stored in `./coverage`.
 
 ##License
 
