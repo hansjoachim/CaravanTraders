@@ -35,5 +35,5 @@ define(
 
     }]);
 
-    return angular.module("app");
+    return app;
 });
