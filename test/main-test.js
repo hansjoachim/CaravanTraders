@@ -7,8 +7,14 @@ for (var file in window.__karma__.files) {
   }
 }
 
-requirejs.config({
+require.config({
   baseUrl: '/base/src',
   deps: tests,
+  paths: {
+    angular: '../dependencies/angular'
+  },
+  shim: {
+    'angular': {'exports': 'angular'}
+  },
   callback: window.__karma__.start
 });
