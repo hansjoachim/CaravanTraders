@@ -6,18 +6,19 @@ define(
   function (angular, city, player, ware) {
     "use strict";
     var app = angular.module("app", []);
-     
-    app.controller("CityController", ["$scope", function($scope) {
-      $scope.cities = [];
+
+    var createCities = function () {
       var somewhere = city.create("Somewhere", [ware.create("apple", 5),
                                                 ware.create("banana", 1),
                                                 ware.create("orange", 2)]); 
       var secondCity = city.create("Otherplace", [ware.create("apple", 2),
                                                  ware.create("pear", 4)]);
-      $scope.cities.push(somewhere);
-      $scope.cities.push(secondCity);
+      return [somewhere, secondCity];
+    };
 
-      $scope.player = player.create(somewhere);
+    app.controller("CityController", ["$scope", function($scope) {
+      $scope.cities = createCities();
+      $scope.player = player.create($scope.cities[0]);
 
       $scope.purchase = function(ware) {
         var purchased = $scope.player.location.removeWare(ware, 1);
@@ -32,7 +33,6 @@ define(
       $scope.travelTo = function(destination) {
         $scope.player.travelTo(destination);
       }
-
     }]);
 
     return app;

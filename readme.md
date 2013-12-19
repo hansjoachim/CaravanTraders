@@ -27,4 +27,6 @@ Third-party software included:
 
 Angular.js (License: MIT)
 
+Angular-mocks.js (License: MIT)
+
 Require.js (License: MIT or new BSD)
