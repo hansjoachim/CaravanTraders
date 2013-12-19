@@ -1,4 +1,4 @@
-define(['angularmocks'], function (mock) {
+define(['angularmocks', 'app'], function (mock, app) {
   "use strict";
   describe('app', function () {
     beforeEach(mock.module('app'));
