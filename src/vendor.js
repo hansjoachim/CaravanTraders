@@ -13,17 +13,17 @@ define( function () {
     if(!existing) {this.wares.push(ware);}
   };
   vendor.removeWare = function (name, amount) {
-    for(var i = 0;i < this.wares.length;i++) {
+    var excluder = function (ware) {
+      if (ware.name !== name) {
+        return ware;
+      }
+    };
+
+   for(var i = 0;i < this.wares.length;i++) {
       var current = this.wares[i];
       if(current.name === name) {
         var removed_amount = amount || current.amount;
         if (current.amount === removed_amount) {
-          var excluder = function (ware) {
-            if (ware.name !== name) {
-              return ware;
-            }
-          };
-
           this.wares = this.wares.filter(excluder);
         } else {
           this.wares[i].amount -= amount;
