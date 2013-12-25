@@ -32,7 +32,7 @@ define(
 
       $scope.travelTo = function(destination) {
         $scope.player.travelTo(destination);
-      }
+      };
     }]);
 
     return app;

@@ -10,10 +10,9 @@ define(function() {
   Ware.create = function (name, amount) {
     if (typeof amount !== "undefined") {
       return new Ware(name, amount);
-    } else {
-      return new Ware(name, 1);
     }
-  }
+    return new Ware(name, 1);
+  };
 
   return Ware;
 });

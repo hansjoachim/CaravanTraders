@@ -3,10 +3,10 @@ define(['angularmocks', 'app'], function (mock, app) {
   describe('app', function () {
     beforeEach(mock.module('app'));
 
-    var scope, ctrl;
+    var scope;
     beforeEach(inject(function($rootScope, $controller) {
       scope = $rootScope.$new();
-      ctrl = $controller('CityController', {$scope:scope});
+      $controller('CityController', {$scope:scope});
     }));
 
     it('creates two cities by default', function () {
