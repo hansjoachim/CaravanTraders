@@ -1,4 +1,3 @@
-/*jslint indent: 2 */
 define(['city', 'player', 'ware'], function (city, player, ware) {
   "use strict";
   var p1 = player.create(city.create("starting point"));

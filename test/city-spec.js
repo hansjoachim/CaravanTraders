@@ -1,4 +1,3 @@
-/*jslint indent: 2 */
 define(['city', 'ware'], function (city, ware) {
   "use strict";
   var apples = ware.create("apple", 2);

@@ -1,4 +1,3 @@
-/*jslint indent: 2*/
 define(function() {
   "use strict";
 

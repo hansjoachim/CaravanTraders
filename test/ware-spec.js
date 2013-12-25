@@ -1,4 +1,3 @@
-/*jslint indent: 2 */
 define(['ware'], function (ware) {
   "use strict";
   describe("a ware", function () {
