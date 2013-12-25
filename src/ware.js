@@ -1,16 +1,14 @@
 define(function () {
   "use strict";
 
-  var Ware = function (name, amount) {
+  var Ware = function (name, amount, cost) {
     this.name = name;
-    this.amount = amount;
+    this.amount = amount || 1;
+    this.cost = cost || 0;
   };
 
-  Ware.create = function (name, amount) {
-    if (amount === undefined) {
-      return new Ware(name, 1);
-    }
-    return new Ware(name, amount);
+  Ware.create = function (name, amount, cost) {
+    return new Ware(name, amount, cost);
   };
 
   return Ware;
