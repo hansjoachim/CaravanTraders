@@ -1,4 +1,4 @@
-define(function() {
+define(function () {
   "use strict";
 
   var Ware = function (name, amount) {
@@ -7,10 +7,10 @@ define(function() {
   };
 
   Ware.create = function (name, amount) {
-    if (typeof amount !== "undefined") {
-      return new Ware(name, amount);
+    if (amount === undefined) {
+      return new Ware(name, 1);
     }
-    return new Ware(name, 1);
+    return new Ware(name, amount);
   };
 
   return Ware;
