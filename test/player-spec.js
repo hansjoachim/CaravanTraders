@@ -34,7 +34,6 @@ define(['city', 'player', 'ware'], function (city, player, ware) {
       expect(trader.wares[1].amount).toBe(1);
     });
     it("will stack wares of the same type when receiving more", function () {
-    "use strict";
       var a_banana = ware.create("banana");
       var another_banana = ware.create("banana");
       var trader = player.create(city.create("Someplace"));
