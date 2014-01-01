@@ -38,8 +38,8 @@ define(
       $scope.cities = createCities();
       $scope.player = player.create($scope.cities[0]);
 
-      $scope.buy = function (ware) {
-        var bought = $scope.player.location.removeWare(ware, 1);
+      $scope.buy = function (item) {
+        var bought = ware.create(item, 1);
         $scope.player.addWare(bought);
       };
 

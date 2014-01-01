@@ -43,10 +43,8 @@ define(['angularmocks', 'app'], function (mock, app) {
       //TODO: somewhat assumes that player is currently in cities[0]
       var ware = scope.cities[0].wares[0];
       var ware_name = ware.name;
-      var initial_amount = ware.amount;
       scope.buy(ware_name);
       expect(scope.player.wares.length).toBe(1);
-      expect(scope.cities[0].wares[0].amount).toBe(initial_amount - 1);
       expect(scope.player.wares[0].name).toBe(ware_name);
       expect(scope.player.wares[0].amount).toBe(1);
     });
@@ -54,13 +52,11 @@ define(['angularmocks', 'app'], function (mock, app) {
        //TODO: somewhat assumes that player is currently in cities[0]
       var ware = scope.cities[0].wares[0];
       var ware_name = ware.name;
-      var initial_amount = ware.amount;
       scope.player.wares = [{name: ware_name, amount: 2}];
       scope.sell(ware_name);
       expect(scope.player.wares[0].amount).toBe(1);
-      expect(scope.cities[0].wares[0].amount).toBe(initial_amount + 1);
     });
+    //TODO: add gold into the mix when buying/selling
     //TODO: verify non-existing items cannot be sold
-    //TODO: can I buy all wares in a city?
   });
 });
