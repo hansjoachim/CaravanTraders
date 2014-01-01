@@ -26,11 +26,11 @@ define(
     var app = angular.module("app", []);
 
     var createCities = function () {
-      var somewhere = city.create("Somewhere", [ware.create("apple", 5),
-                                                ware.create("banana", 1),
-                                                ware.create("orange", 2)]);
-      var secondCity = city.create("Otherplace", [ware.create("apple", 2),
-                                                 ware.create("pear", 4)]);
+      var somewhere = city.create("Somewhere", [ware.create("apple"),
+                                                ware.create("banana"),
+                                                ware.create("orange")]);
+      var secondCity = city.create("Otherplace", [ware.create("apple"),
+                                                 ware.create("pear")]);
       return [somewhere, secondCity];
     };
 
