@@ -40,18 +40,18 @@ define(['angularmocks', 'app'], function (mock, app) {
       expect(scope.player.location).not.toBe(starting_place);
     });
     it('allows a player to buy an item', function() {
-      //TODO: somewhat assumes that player is currently in citites[0]
+      //TODO: somewhat assumes that player is currently in cities[0]
       var ware = scope.cities[0].wares[0];
       var ware_name = ware.name;
       var initial_amount = ware.amount;
-      scope.purchase(ware_name);
+      scope.buy(ware_name);
       expect(scope.player.wares.length).toBe(1);
       expect(scope.cities[0].wares[0].amount).toBe(initial_amount - 1);
       expect(scope.player.wares[0].name).toBe(ware_name);
       expect(scope.player.wares[0].amount).toBe(1);
     });
     it('allows a player to sell an item', function() {
-       //TODO: somewhat assumes that player is currently in citites[0]
+       //TODO: somewhat assumes that player is currently in cities[0]
       var ware = scope.cities[0].wares[0];
       var ware_name = ware.name;
       var initial_amount = ware.amount;

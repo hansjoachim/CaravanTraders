@@ -38,9 +38,9 @@ define(
       $scope.cities = createCities();
       $scope.player = player.create($scope.cities[0]);
 
-      $scope.purchase = function (ware) {
-        var purchased = $scope.player.location.removeWare(ware, 1);
-        $scope.player.addWare(purchased);
+      $scope.buy = function (ware) {
+        var bought = $scope.player.location.removeWare(ware, 1);
+        $scope.player.addWare(bought);
       };
 
       $scope.sell = function (ware) {

@@ -14,7 +14,7 @@
       <h4>{{player.location.name}}</h4>
       <ul class="wares">
         <li ng-repeat="ware in player.location.wares">
-          <input type="button" value="Purchase" ng-click="purchase(ware.name)" /> {{ware.name}} ({{ware.amount}})
+          <input type="button" value="Buy" ng-click="buy(ware.name)" /> {{ware.name}} ({{ware.amount}})
         </li>
       </ul>
     </div>

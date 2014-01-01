@@ -76,7 +76,6 @@ define(['city', 'ware'], function (city, ware) {
       expect(place.wares.length).toBe(1);
       expect(place.getWareNames()).toContain("orange");
     });
-     //TODO: long-term: combine buying/selling in a purchase-object
     //TODO: should throw an exception if I attempt to remove a ware I don't have
     //TODO: ditto for attempting to remove a too large amount
     it("has a list of the wares in stock", function () {
