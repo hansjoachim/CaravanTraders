@@ -21,7 +21,7 @@ define(['angularmocks', 'app'], function (mock, app) {
   describe('app', function () {
     beforeEach(mock.module('app'));
 
-    var scope;
+    var scope = {};
     beforeEach(inject(function($rootScope, $controller) {
       scope = $rootScope.$new();
       $controller('CityController', {$scope:scope});

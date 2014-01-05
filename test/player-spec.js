@@ -22,7 +22,7 @@ define(['city', 'player', 'ware'], function (city, player, ware) {
   var banana = ware.create("banana");
   var orange = ware.create("orange");
   var starting_point = city.create("starting point");
-  var player1;
+  var player1 = {};
 
   beforeEach(function () {
     player1 = player.create(starting_point);
