@@ -18,7 +18,11 @@
 
 define(['city', 'player', 'ware'], function (city, player, ware) {
   "use strict";
-  var p1 = player.create(city.create("starting point"));
+  var starting_point = city.create("starting point");
+  var p1 = player.create(starting_point);
+  var apples = ware.create("apple", 2);
+  var banana = ware.create("banana");
+  var orange = ware.create("orange");
 
   describe("player", function () {
     it("starts with an empty list of wares", function () {
@@ -35,7 +39,7 @@ define(['city', 'player', 'ware'], function (city, player, ware) {
       expect(p1.location.name).toBe("somewhere else");
     });
     it("can gain a ware", function () {
-      p1.addWare(ware.create("banana"));
+      p1.addWare(banana);
       expect(p1.wares.length).toBe(1);
       expect(p1.wares[0].name).toBe("banana");
       expect(p1.wares[0].amount).toBe(1);
@@ -60,5 +64,45 @@ define(['city', 'player', 'ware'], function (city, player, ware) {
       expect(trader.wares[0].name).toBe("banana");
       expect(trader.wares[0].amount).toBe(2);
     });
+    it("can remove some of a ware", function () {
+      var bananas = ware.create("banana", 3);
+      var some_player = player.create(city.create("some place"));
+      some_player.wares = [bananas];
+      var sold = some_player.removeWare("banana", 2);
+      expect(sold.name).toBe("banana");
+      expect(sold.amount).toBe(2);
+      expect(some_player.wares.length).toBe(1);
+      expect(some_player.getAmount("banana")).toBe(1);
+    });
+    it("will stop listing a ware if all of it is removed", function () {
+      var some_player = player.create(city.create("some place"));
+      some_player.wares = [banana];
+      var sold = some_player.removeWare("banana", 1);
+      expect(sold.name).toBe("banana");
+      expect(sold.amount).toBe(1);
+      expect(some_player.wares.length).toBe(0);
+    });
+    it("can remove all of one ware without impacting the others", function () {
+      var p2 = player.create(city.create("name"));
+      p2.wares = [banana, apples];
+      var all_apples = p2.removeWare("apple", 2);
+      expect(all_apples.name).toBe("apple");
+      expect(all_apples.amount).toBe(2);
+      expect(p2.wares.length).toBe(1);
+      expect(p2.getWareNames()).not.toContain("apple");
+      expect(p2.getWareNames()).toContain("banana");
+    });
+    it("will remove all of a ware if an amount is not specified", function () {
+      var p2 = player.create(city.create("name"));
+      p2.wares = [orange, apples];
+      var all_apples = p2.removeWare("apple");
+      expect(all_apples.name).toBe("apple");
+      expect(all_apples.amount).toBe(2);
+      expect(p2.wares.length).toBe(1);
+      expect(p2.getWareNames()).toContain("orange");
+    });
+    //TODO: should throw an exception if I attempt to remove a ware I don't have
+    //TODO: ditto for attempting to remove a too large amount
+
   });
 });
