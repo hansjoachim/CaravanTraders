@@ -20,6 +20,15 @@ define( function () {
   "use strict";
 
   var vendor = {};
+
+  vendor.getWareNames = function () {
+    var names = [];
+    this.wares.forEach(function (ware) {
+      names.push(ware.name);
+    });
+    return names;
+  };
+
   vendor.addWare = function (ware) {
     var existing = false;
     for(var i = 0;i<this.wares.length;i++){

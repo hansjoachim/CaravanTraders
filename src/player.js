@@ -34,5 +34,14 @@ define(['vendor'], function (vendor) {
     return new Player(stating_place);
   };
 
+  Player.prototype.getAmount = function (name) {
+    for(var i = 0;i < this.wares.length;i++) {
+      if(this.wares[i].name === name) {
+        return this.wares[i].amount;
+      }
+    }
+    return 0;
+  };
+
   return Player;
 });
