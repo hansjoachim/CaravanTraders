@@ -40,12 +40,13 @@ define(
 
       $scope.buy = function (ware_name) {
         var bought = ware.create(ware_name, 1);
+        //FIXME: remove gold
         $scope.player.addWare(bought);
       };
 
       $scope.sell = function (ware_name) {
         var sold = $scope.player.removeWare(ware_name, 1);
-        $scope.player.location.addWare(sold);
+        //FIXME: add gold
       };
 
       $scope.travelTo = function (destination) {

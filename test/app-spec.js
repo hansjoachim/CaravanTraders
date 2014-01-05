@@ -57,6 +57,5 @@ define(['angularmocks', 'app'], function (mock, app) {
       expect(scope.player.wares[0].amount).toBe(1);
     });
     //TODO: add gold into the mix when buying/selling
-    //TODO: verify non-existing items cannot be sold
   });
 });
