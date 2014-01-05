@@ -19,48 +19,60 @@
 define( function () {
   "use strict";
 
-  var vendor = {};
+  var vendor = function () {
 
-  vendor.getWareNames = function () {
-    var names = [];
-    this.wares.forEach(function (ware) {
-      names.push(ware.name);
-    });
-    return names;
-  };
-
-  vendor.addWare = function (ware) {
-    var existing = false;
-    for(var i = 0;i<this.wares.length;i++){
-      if(this.wares[i].name === ware.name){
-        this.wares[i].amount += ware.amount;
-        existing=true;
-      }
-    }
-    if(!existing) {this.wares.push(ware);}
-  };
-  vendor.removeWare = function (name, amount) {
-    var excluder = function (ware) {
-      if (ware.name !== name) {
-        return ware;
-      }
+    this.getWareNames = function () {
+      var names = [];
+      this.wares.forEach(function (ware) {
+        names.push(ware.name);
+      });
+      return names;
     };
 
-   for(var i = 0;i < this.wares.length;i++) {
-      var current = this.wares[i];
-      if(current.name === name) {
-        var removed_amount = amount || current.amount;
-        if (current.amount === removed_amount) {
-          this.wares = this.wares.filter(excluder);
-        } else {
-          this.wares[i].amount -= amount;
-        }
-        return {
-          "name": current.name,
-          "amount": removed_amount
-          };
+   this.getAmount = function (name) {
+    for(var i = 0;i < this.wares.length;i++) {
+      if(this.wares[i].name === name) {
+        return this.wares[i].amount;
       }
     }
+    return 0;
+  };
+
+
+    this.addWare = function (ware) {
+      var existing = false;
+      for(var i = 0;i<this.wares.length;i++){
+        if(this.wares[i].name === ware.name){
+          this.wares[i].amount += ware.amount;
+          existing=true;
+        }
+      }
+      if(!existing) {this.wares.push(ware);}
+    };
+
+    this.removeWare = function (name, amount) {
+      var excluder = function (ware) {
+        if (ware.name !== name) {
+          return ware;
+        }
+      };
+
+     for(var i = 0;i < this.wares.length;i++) {
+        var current = this.wares[i];
+        if(current.name === name) {
+          var removed_amount = amount || current.amount;
+          if (current.amount === removed_amount) {
+            this.wares = this.wares.filter(excluder);
+          } else {
+            this.wares[i].amount -= amount;
+          }
+          return {
+            "name": current.name,
+            "amount": removed_amount
+            };
+        }
+      }
+    };
   };
   return vendor;
 });

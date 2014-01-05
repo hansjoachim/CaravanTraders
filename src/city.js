@@ -24,7 +24,7 @@ define(['vendor'], function (vendor) {
     this.wares = wares;
   };
 
-  City.prototype = vendor;
+  City.prototype = new vendor();
 
   City.create = function (name, wares) {
     return new City(

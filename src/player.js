@@ -24,7 +24,8 @@ define(['vendor'], function (vendor) {
     this.wares = [];
     this.gold = 10;
   };
-  Player.prototype = vendor;
+
+  Player.prototype = new vendor();
 
   Player.prototype.travelTo = function (place) {
     this.location = place;
@@ -32,15 +33,6 @@ define(['vendor'], function (vendor) {
 
   Player.create = function (stating_place) {
     return new Player(stating_place);
-  };
-
-  Player.prototype.getAmount = function (name) {
-    for(var i = 0;i < this.wares.length;i++) {
-      if(this.wares[i].name === name) {
-        return this.wares[i].amount;
-      }
-    }
-    return 0;
   };
 
   return Player;
