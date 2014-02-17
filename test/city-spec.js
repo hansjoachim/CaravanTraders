@@ -61,5 +61,16 @@ define(['city', 'ware'], function (city, ware) {
       var some_place = city.create("some place", []);
       expect(some_place.getAmount("banana")).toBe(0);
     });
+    it('can lookup a ware based on name', function() {
+      var some_place = city.create("some place", [ware.create("pineapple", 1, 10)]);
+      var found = some_place.getWare("pineapple");
+      expect(found.name).toBe("pineapple");
+      expect(found.price).toBe(10);
+    });
+    it('will return none if a ware is not found', function() {
+      var some_place = city.create("Some place", []);
+      var found = some_place.getWare("something");
+      expect(found).toBeNull();
+    });
   });
 });

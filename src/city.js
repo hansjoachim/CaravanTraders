@@ -33,5 +33,14 @@ define(['vendor'], function (vendor) {
       );
   };
 
+  City.prototype.getWare = function (ware_name) {
+    for(var ware in this.wares) {
+      if (this.wares[ware].name === ware_name) {
+        return this.wares[ware];
+      }
+    }
+    return null;
+  };
+
   return City;
 });
