@@ -25,6 +25,7 @@ define(['vendor'], function (vendor) {
     this.gold = 10;
   };
 
+  //FIXME: Object.create()
   Player.prototype = new vendor();
 
   Player.prototype.travelTo = function (place) {
