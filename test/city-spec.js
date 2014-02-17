@@ -50,17 +50,6 @@ define(['city', 'ware'], function (city, ware) {
       expect(town.getWareNames()).toContain("banana");
       expect(town.getWareNames()).toContain("orange");
     });
-    //TODO: cities are considered to have an infinte amount of wares
-    //replace with boolean?
-    it("can get the amount of a ware", function () {
-      var some_place = city.create("some place", [banana, apples]);
-      expect(some_place.getAmount("banana")).toBe(1);
-      expect(some_place.getAmount("apple")).toBe(2);
-    });
-    it("can say it has zero of a ware it doesn't have in stock", function () {
-      var some_place = city.create("some place", []);
-      expect(some_place.getAmount("banana")).toBe(0);
-    });
     it('can lookup a ware based on name', function() {
       var some_place = city.create("some place", [ware.create("pineapple", 1, 10)]);
       var found = some_place.getWare("pineapple");
