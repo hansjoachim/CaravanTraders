@@ -26,7 +26,7 @@ define(
     var app = angular.module("app", []);
 
     var createCities = function () {
-      var somewhere = city.create("Somewhere", [ware.create("apple"),
+      var somewhere = city.create("Somewhere", [ware.create("apple", 1, 5),
                                                 ware.create("banana"),
                                                 ware.create("orange")]);
       var secondCity = city.create("Otherplace", [ware.create("apple"),
@@ -40,7 +40,7 @@ define(
 
       $scope.buy = function (ware_name) {
         var bought = ware.create(ware_name, 1);
-        //FIXME: remove gold
+        $scope.player.gold -= $scope.player.location.getWare(ware_name).price;
         $scope.player.addWare(bought);
       };
 

@@ -47,6 +47,7 @@ define(['angularmocks', 'app'], function (mock, app) {
       expect(scope.player.wares.length).toBe(1);
       expect(scope.player.wares[0].name).toBe(ware_name);
       expect(scope.player.wares[0].amount).toBe(1);
+      expect(scope.player.gold).toBe(5);
     });
     it('allows a player to sell an item', function() {
        //TODO: somewhat assumes that player is currently in cities[0]
