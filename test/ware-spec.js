@@ -28,7 +28,7 @@ define(['ware'], function (ware) {
       expect(orange.amount).toBe(1);
     });
     it('can have a set amount', function () {
-      var apple = ware.create('apple', 3);
+      var apple = ware.create('apple', 10, 3);
       expect(apple.name).toBe('apple');
       expect(apple.amount).toBe(3);
     });
@@ -37,7 +37,7 @@ define(['ware'], function (ware) {
       expect(pear.price).toBe(0);
     });
     it('can have a set price', function() {
-      var coconut = ware.create('coconut', 1, 10);
+      var coconut = ware.create('coconut', 10);
       expect(coconut.price).toBe(10);
     });
   });

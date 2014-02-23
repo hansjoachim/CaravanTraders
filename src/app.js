@@ -26,7 +26,7 @@ define(
     var app = angular.module("app", []);
 
     var createCities = function () {
-      var somewhere = city.create("Somewhere", [ware.create("apple", 1, 5),
+      var somewhere = city.create("Somewhere", [ware.create("apple", 5),
                                                 ware.create("banana"),
                                                 ware.create("orange")]);
       var secondCity = city.create("Otherplace", [ware.create("apple"),

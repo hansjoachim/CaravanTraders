@@ -18,7 +18,7 @@
 
 define(['city', 'player', 'ware'], function (city, player, ware) {
   "use strict";
-  var apples = ware.create("apple", 2);
+  var apples = ware.create("apple", 10, 2);
   var banana = ware.create("banana");
   var orange = ware.create("orange");
   var starting_point = city.create("starting point");
@@ -67,7 +67,7 @@ define(['city', 'player', 'ware'], function (city, player, ware) {
       expect(player1.wares[0].amount).toBe(2);
     });
     it("can remove some of a ware", function () {
-      var bananas = ware.create("banana", 3);
+      var bananas = ware.create("banana", 10, 3);
       player1.wares = [bananas];
       var sold = player1.removeWare("banana", 2);
       expect(sold.name).toBe("banana");

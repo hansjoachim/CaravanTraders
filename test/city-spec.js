@@ -51,7 +51,7 @@ define(['city', 'ware'], function (city, ware) {
       expect(town.getWareNames()).toContain("orange");
     });
     it('can lookup a ware based on name', function() {
-      var some_place = city.create("some place", [ware.create("pineapple", 1, 10)]);
+      var some_place = city.create("some place", [ware.create("pineapple", 10)]);
       var found = some_place.getWare("pineapple");
       expect(found.name).toBe("pineapple");
       expect(found.price).toBe(10);

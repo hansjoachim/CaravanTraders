@@ -19,14 +19,14 @@
 define(function () {
   "use strict";
 
-  var Ware = function (name, amount, price) {
+  var Ware = function (name, price, amount) {
     this.name = name;
-    this.amount = amount || 1;
     this.price = price || 0;
+    this.amount = amount || 1;
   };
 
-  Ware.create = function (name, amount, price) {
-    return new Ware(name, amount, price);
+  Ware.create = function (name, price, amount) {
+    return new Ware(name, price, amount);
   };
 
   return Ware;
