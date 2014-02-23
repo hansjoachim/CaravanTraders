@@ -27,7 +27,7 @@ define(
 
     var createCities = function () {
       var somewhere = city.create("Somewhere", [ware.create("apple", 5),
-                                                ware.create("banana"),
+                                                ware.create("banana", 15),
                                                 ware.create("orange")]);
       var secondCity = city.create("Otherplace", [ware.create("apple"),
                                                  ware.create("pear")]);
@@ -39,8 +39,13 @@ define(
       $scope.player = player.create($scope.cities[0]);
 
       $scope.buy = function (ware_name) {
+        var price = $scope.player.location.getWare(ware_name).price;
+
+        if (price > $scope.player.gold) {
+          throw new Error("Too expensive");
+        }
         var bought = ware.create(ware_name, 1);
-        $scope.player.gold -= $scope.player.location.getWare(ware_name).price;
+        $scope.player.gold -= price;
         $scope.player.addWare(bought);
       };
 

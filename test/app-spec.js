@@ -49,6 +49,20 @@ define(['angularmocks', 'app'], function (mock, app) {
       expect(scope.player.wares[0].amount).toBe(1);
       expect(scope.player.gold).toBe(5);
     });
+    it('prevents player from buying something when out of gold', function() {
+      var ware = scope.cities[0].wares[0];
+      var ware_name = ware.name;
+      scope.buy(ware_name);
+      scope.buy(ware_name);
+      expect(scope.player.gold).toBe(0);
+      expect(function () {scope.buy(ware_name)}).toThrow(new Error("Too expensive"));
+    });
+    it('prevents player from buying when the ware is too expensive', function() {
+      var ware = scope.cities[0].wares[1];
+      var ware_name = ware.name;
+
+      expect(function () {scope.buy(ware_name)}).toThrow(new Error("Too expensive"));
+    });
     it('allows a player to sell an item', function() {
        //TODO: somewhat assumes that player is currently in cities[0]
       var ware = scope.cities[0].wares[0];
@@ -56,7 +70,7 @@ define(['angularmocks', 'app'], function (mock, app) {
       scope.player.wares = [{name: ware_name, amount: 2}];
       scope.sell(ware_name);
       expect(scope.player.wares[0].amount).toBe(1);
+      //TODO: have more gold
     });
-    //TODO: add gold into the mix when buying/selling
   });
 });
